@@ -1,0 +1,48 @@
+.content{
+    height: 500px;
+    width: 100%;
+    margin: auto;
+    padding: 20px 10px;
+    border: 1px solid goldenrod;
+    display: flex;
+    justify-content:space-evenly;
+    flex-direction:row-reverse;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+
+.item {
+    width: 20%;
+    height: 200px;
+    background-color: aquamarine;
+    
+}
+
+.item:first-child {
+ background-color: goldenrod;
+}
+.item:last-child {
+    background-color: gray;
+}
+.item:nth-child(2){
+    background-color: green;
+}
+.item:nth-child(3){
+    background-color: indianred;
+}
+.item:nth-child(4){
+    background-color: rgb(61, 40, 99);
+}
+.item:nth-child(5){
+    background-color: rgb(31, 19, 19);
+}
+.item:nth-child(6){
+    background-color: rgb(42, 107, 58);
+}
+.item:nth-child(7){
+    background-color: rgb(146, 19, 57);
+}
+.item:nth-child(8){
+    background-color: rgb(153, 190, 18);
+}

@@ -1,0 +1,117 @@
+.bodyquotes{
+    height: 700px;
+    width:1300px;
+    margin: auto;
+    display: flex;
+    flex-direction:row;
+    align-items:center;
+    color:rgb(198, 255, 41);
+    box-shadow:5px 10px 10px #5a4b4b;
+}
+
+.container{
+    width: 50%;
+    height: 700px;
+}
+
+.container:first-child{
+    background-image: url(./imgs/nền.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-color: lightslategrey;
+}
+
+.container:last-child{
+    background-image: url(./imgs/nền2.jpg);
+    background-repeat: no-repeat;   
+    background-size: cover;
+  
+}
+.quotes--title{
+    padding: 20px;
+}
+.quotes--content{
+    padding-top: 200px;
+    text-align: center;
+    margin:20px 120px;
+}
+
+.content--author{
+    display: flex;
+    margin-left: 40px;
+    flex-direction:row;
+    
+}
+.material{
+   background-image: url(./imgs/vô-tâm.jpg);
+   background-size: cover;
+   background-repeat: no-repeat;
+   width: 40px;
+   padding: 5px;
+   border-radius: 50%;
+}
+.footer{
+    width:1300px;
+    background-color: rgb(216, 23, 119);
+    display:flex;
+    align-items: center;
+    margin: auto;
+    height: 50px;
+    box-shadow:5px 10px 10px #5a4b4b;
+}
+.footer--content:first-child{
+    width:30%;
+}
+.footer--content:nth-child(2){
+    width:40%;
+    text-align: center;
+}
+.footer--content:last-child{
+    width:30%;
+    text-align: right;
+}
+.footer--button{
+    font-size:10px;
+    width:120px;
+    height: 30px;
+    margin-left: 20px;
+    
+}
+.footer--button:hover{
+    background-color: tomato;
+    cursor:pointer;
+}
+.footer--button:active{
+    font-family:monospace;
+}
+.fa {
+    padding: 5px;
+    font-size: 10px;
+    width: 20px;
+    text-align:center;
+    text-decoration: none;
+    margin:5px;
+    border-radius: 50%;
+}
+.new--content{
+    font-size: 13px;
+}
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+.fa-skype {
+    background: #00aff0;
+    color: white;
+  }
+.item--other{
+    font-size: 13px;
+    font-family: cursive;
+    margin-right: 10px;
+}
+

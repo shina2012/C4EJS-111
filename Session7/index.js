@@ -10,4 +10,4 @@
 //transition-timing-funtion: ease-in , ease-out , liear
 // box-shadow : ccsmatic.com tìm hiểu
 
-//
+//Bài tập về nhà : tìm hiểu reset css

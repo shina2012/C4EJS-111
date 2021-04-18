@@ -21,29 +21,28 @@
     <div class="calculate">
         <div class="calculate--result" id="result">0</div>
         <div class="calculate--action">
-            <div class="btn action--operator btn--outline__left" id="click--cong" onclick="tinhTong"> +</div>
-            <div class="btn action--operator" id="click--tru" onclick="tinhTru">-</div>
-            <div class="btn action--operator" id="clik--nhan" onclick="tinhNhan">*</div>
-            <div class="btn action--operator btn--outline__right" id="click--chia" onclick="tinhChia">/</div>
+            <div class="btn action--operator btn--outline__left" onclick="add('+')">+</div>
+            <div class="btn action--operator" onclick="add('-')">-</div>
+            <div class="btn action--operator" onclick="operatorButton('*')">*</div>
+            <div class="btn action--operator btn--outline__right" onclick="add('/')">/</div>
         </div>
         <div class="calculate--body">
             <div class="calculate--number">
-                <div class="btn btn-number btn--outline__left" id="number7" onclick="addBay">7</div>
-                <div class="btn btn-number" id="number8" onclick="addTam">8</div>
-                <div class="btn btn-number" id="number9" onclick="" addChin>9</div>
-                <div class="btn btn-number btn--outline__left" id="number4" onclick="addBon">4</div>
-                <div class="btn btn-number" id="number5" onclick="addNam">5</div>
-                <div class="btn btn-number" id="number6" onclick="addSau">6</div>
-                <div class="btn btn-number btn--outline__left" id="number1" onclick="addMot">1</div>
-                <div class="btn btn-number" id="number2" onclick="addHai">2</div>
-                <div class="btn btn-number" id="number3" onclick="addBa">3</div>
-                <div class="btn btn-number btn-zero btn--outline__left btn--outline__bottom" id="number0"
-                    onclick="addZero">
+                <div class="btn btn-number btn--outline__left" onclick="add('7')">7</div>
+                <div class="btn btn-number" onclick="add('8')">8</div>
+                <div class="btn btn-number" onclick=" add('9')">9</div>
+                <div class="btn btn-number btn--outline__left" onclick="add('4')">4</div>
+                <div class="btn btn-number" onclick="add('5')">5</div>
+                <div class="btn btn-number" onclick="add('6')">6</div>
+                <div class="btn btn-number btn--outline__left" onclick="add('1')">1</div>
+                <div class="btn btn-number" onclick="add('2')">2</div>
+                <div class="btn btn-number" onclick="add('3')">3</div>
+                <div class="btn btn-number btn-zero btn--outline__left btn--outline__bottom" onclick="add('0')">
                     0
                 </div>
-                <div class="btn btn-number btn--outline__bottom" id="clear" onclick="clearNum">AC</div>
+                <div class="btn btn-number btn--outline__bottom"id="clear" onclick="reset()">AC</div>
             </div>
-            <div class="btn calculate--equal btn--outline__right btn--outline__bottom" id="tinhTong" onclick="ketQUa">
+            <div class="btn calculate--equal btn--outline__right btn--outline__bottom" onclick="result('=')">
                 =
             </div>
         </div>

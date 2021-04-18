@@ -6,12 +6,3 @@
 // onchange và onblur
 
 //bài tập về nhà: breaking math 
-
-
-// let result =document.getElementById("result");
-// let stringOpera =0;
-// let btn =document.getElementsByClassName("btn");
-
-// function btn(){
-//     btn.call(stringOpera);
-// }

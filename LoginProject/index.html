@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project</title>
+    <!-- Custom Style   -->
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/edit-form.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;1,300&family=Open+Sans+Condensed:wght@300&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav id="navList" class="nav">
+        <div>
+            <ul class="nav-items">
+                <li class="nav-link" onclick="back_home('reload')">
+                    <a href='#'>Home</a>
+                </li>
+
+                <li class="nav-link" id='login-btn' onclick="showLoginModal()">
+                    <a href='#'>
+                        <div>Log In</div>
+                    </a>
+                </li>
+                <li class="nav-link" id='account-btn' onclick="showAccountModal()">
+                    <a href='#'>
+                        <div>Account</div>
+                    </a>
+                </li>
+                <li class="nav-link" id="admin-panel-btn" onclick="openAdminPanel()">
+                    <a href='#'>
+                        <div>Admin Panel</div>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+        </div>
+        </div>
+        </div>
+    </nav>
+    <div id="main-page">
+        <!-- ADMIN PANEL -->
+        <div class="modal-bg" id="admin-panel-display" style="font-family: var(--Abel);">
+            <div id="admin-panel" style="border: black 4px solid;">
+                <div class="close-modal-btn" onclick="closeAdminPanel()" style="display: block;">X</div>
+                <div style="text-align: center; font-size: 30px; margin-bottom: 30px;">
+                    ADMIN PANEL</div>
+                <div>
+                    <div class="manage-btn" id="manage-post-btn"
+                        style="text-align: center; font-size: 20px; margin-bottom: 5px;" onclick="displayPostTable()">
+                        Manage Posts</div>
+                    <br>
+                    <div class="manage-btn" id="manage-users-btn"
+                        style="text-align: center; font-size: 20px; margin-bottom: 5px;" onclick="displayUserTable()">
+                        Manage Users</div>
+                    <br>
+                    <div id="managed-content-field" style="border: 2px solid black; padding: 5px; display: none;">
+                        <table class="manage-table" id='manage-table-content'>
+                        </table>
+                        <br>
+                        <div class="manage-btn" id="create-post-btn"
+                            style="text-align: center; font-size: 20px; display: none; margin-bottom: 5px;""
+                            onclick=" displayCreateForm()">
+                            Create Post</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ADMIN PANEL -->
+        <!-- LOGIN MODAL -->
+        <div class="modal-bg" id="login-modal">
+            <div class="form" id="login-form-display">
+                <div id="register-form" hidden>
+                    <div class="close-modal-btn" onclick="hideLoginModal()">X</div>
+                    <input type="text" placeholder="Enter your username" id="input-register-name"
+                        style="margin-left: auto; margin-right: auto;" />
+                    <input type="text" placeholder="Enter your email address" id="input-register-email"
+                        style="margin-left: auto; margin-right: auto;" />
+                    <input type="password" placeholder="Enter your password" id="input-register-password"
+                        style="margin-left: auto; margin-right: auto;" />
+                    <input type="password" placeholder="Confirm your password" id="input-register-confirm-password"
+                        style="margin-left: auto; margin-right: auto;" />
+                    <br>
+                    <div id="btn_reg" class="form-btn" onclick="registerFunction()">CREATE</div>
+                    <p class="message">Already registered? <a onclick="redirectToLogin()" id="redirect-to-login"
+                            href="#">Sign In</a></p>
+                    <br>
+                </div>
+                <div id="login-form" style="margin-left: auto; margin-right: auto;">
+                    <div class="close-modal-btn" onclick="hideLoginModal()">X</div>
+                    <input type="text" placeholder="Enter your username" id="input-username"
+                        style="margin-left: auto; margin-right: auto;" />
+                    <input type="password" placeholder="Enter your password" id="input-password"
+                        style="margin-left: auto; margin-right: auto;" />
+                    <br>
+                    <div class="form-btn" onclick="logInFunction()">LOG IN</div>
+                    <p class="message" style="margin-left: auto; margin-right: auto;">Not registered? <a
+                            onclick="redirectToRegister()" id="redirect-to-register" href="#">Create an account</a></p>
+                    <br>
+                </div>
+            </div>
+        </div>
+        <!-- LOGIN MODAL -->
+        <!-- LOGOUT MODAL -->
+        <div class="logout-modal-bg" id="logout-modal" style="display: none;">
+            <div id='logout-form'>
+                <p>Do you want to log out?</p>
+                <div style="display: inline-block;" class='bw-flashing-btn' onclick="logOutFunction()">Yes</div>
+                <div style="display: inline-block;" class='bw-flashing-btn' onclick="hideLogoutModal()">No</div>
+            </div>
+        </div>
+        <!-- LOGOUT MODAL -->
+        <!-- ACCOUNT MODAL -->
+        <div class="modal-bg" id="account-modal" style="display: none;">
+            <div id="account-panel" style="border: black 4px solid;">
+                <div class="close-modal-btn" onclick="closeAccountModal()" style="display: block;">X</div>
+                <a href="#"><i class="fas fa-portrait" style="font-size: 50px;"></i></a>
+                <div id="active-user" style="color:black; font-family: var(--Abel); margin-top: 5px;
+                font-size: 150%;"></div>
+                <div id="active-user-role" style="color:black; font-family: var(--Abel); margin-top: 5px;"></div>
+                <br>
+                <div id="logout-btn" style="font-family: var(--Abel);" onclick="showLogoutModal()">Log Out</div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Jquery Lib file -->
+    <script src="./jsView/Jquery3.4.1.min.js"></script>
+    <script src="content-database.js"></script>
+    <script src="./jsView/main.js"></script>
+    <script src="user-database.js"></script>
+    <script src="login.js"></script>
+    <script src="admin-panel.js"></script>
+
+</body>
+
+</html>

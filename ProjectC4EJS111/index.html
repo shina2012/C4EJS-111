@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Woodstock</title>
+
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/edit-form.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;1,300&family=Open+Sans+Condensed:wght@300&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./slick/slick.css" />
+    <link rel="stylesheet" href="./slick/slick-theme.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/edit-form.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;1,300&family=Open+Sans+Condensed:wght@300&display=swap"
+        rel="stylesheet">
+
+
+</head>
+
+<body onload="underlineTitle(0)">
+    <div id="homepage">
+
+        <div id="homepage--header">
+            <div class="homepage--header__leftNavBar">
+                <a href="http://127.0.0.1:5500/C4E_project/index.html" class="homepage--header__logo">WOODEN</a>
+            </div>
+
+            <ul class="homepage--header__navBar">
+                <li class="header--buttonCSS underline" onclick="underlineTitle(0)">
+                    <a href="http://127.0.0.1:5500/C4E_project/index.html">Home</a>
+                </li>
+                <li class="header--buttonCSS underline" onclick="underlineTitle(1)">
+                    <a href="#">Shop</a>
+
+                </li>
+                <li class="header--buttonCSS underline" onclick="underlineTitle(2)">
+                    <a href="#">Product</a>
+
+                </li>
+                <li class="header--buttonCSS underline" onclick="underlineTitle(3)">
+                    <a href="#">About us</a>
+
+                </li>
+                <li class="header--buttonCSS underline" onclick="underlineTitle(4)">
+                    <a href="#">Contact</a>
+                </li>
+
+            </ul>
+
+            <div class="homepage--header__rightNavBar">
+                <nav id="navList" class="nav">
+                    <nav>
+                        <ul class="nav-items">
+                            <li class="nav-link" id='login-btn' onclick="showLoginModal()">
+                                <a href='#'>
+                                    <div>Login</div>
+                                </a>
+                            </li>
+                            <li class="nav-link" id='account-btn' onclick="showAccountModal()">
+                                <a href='#'>
+                                    <div>Account</div>
+                                </a>
+                            </li>
+                            <li class="nav-link" id="admin-panel-btn" onclick="openAdminPanel()">
+                                <a href='#'>
+                                    <div>Admin Panel</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </nav>
+                <div class="rightNavBar__cartCount">1</div>
+            </div>
+        </div>
+
+        <div id="main-page">
+            <!-- ADMIN PANEL -->
+            <div class="modal-bg" id="admin-panel-display" style="font-family: var(--Abel);">
+                <div id="admin-panel" style="border: black 4px solid;">
+                    <div class="close-modal-btn" onclick="closeAdminPanel()" style="display: block;">X</div>
+                    <div style="text-align: center; font-size: 30px; margin-bottom: 30px;">
+                        ADMIN PANEL</div>
+                    <div>
+                        <div class="manage-btn" id="manage-post-btn"
+                            style="text-align: center; font-size: 20px; margin-bottom: 5px;"
+                            onclick="displayPostTable()">
+                            Manage Posts</div>
+                        <br>
+                        <div class="manage-btn" id="manage-users-btn"
+                            style="text-align: center; font-size: 20px; margin-bottom: 5px;"
+                            onclick="displayUserTable()">
+                            Manage Users</div>
+                        <br>
+                        <div id="managed-content-field" style="border: 2px solid black; padding: 5px; display: none;">
+                            <table class="manage-table" id='manage-table-content'>
+                            </table>
+                            <br>
+                            <div class="manage-btn" id="create-post-btn"
+                                style="text-align: center; font-size: 20px; display: none; margin-bottom: 5px;"
+                                onclick=" displayCreateForm()">
+                                Create Post</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ADMIN PANEL -->
+            <!-- LOGIN MODAL -->
+            <div class="modal-bg" id="login-modal">
+                <div class="form" id="login-form-display">
+                    <div id="register-form" hidden>
+                        <div class="close-modal-btn" onclick="hideLoginModal()">X</div>
+                        <lottie-player
+                            src="https://assets4.lottiefiles.com/datafiles/XRVoUu3IX4sGWtiC3MPpFnJvZNq7lVWDCa8LSqgS/profile.json"
+                            background="transparent" speed="1" style="justify-content: center" loop autoplay>
+                        </lottie-player>
+                        <input type="text" placeholder="Enter your username" id="input-register-name"
+                            style="margin-left: auto; margin-right: auto;" />
+                        <input type="text" placeholder="Enter your email address" id="input-register-email"
+                            style="margin-left: auto; margin-right: auto;" />
+                        <input type="password" placeholder="Enter your password" id="input-register-password"
+                            style="margin-left: auto; margin-right: auto;" />
+                        <input type="password" placeholder="Confirm your password" id="input-register-confirm-password"
+                            style="margin-left: auto; margin-right: auto;" />
+                        <br>
+                        <div id="btn_reg" class="form-btn" onclick="registerFunction()">CREATE</div>
+                        <p class="message">Already registered? <a onclick="redirectToLogin()" id="redirect-to-login"
+                                href="#">Sign In</a></p>
+                        <br>
+                    </div>
+                    <div id="login-form" style="margin-left: auto; margin-right: auto;">
+                        <div class="close-modal-btn" onclick="hideLoginModal()">X</div>
+                        <input type="text" placeholder="Enter your username" id="input-username"
+                            style="margin-left: auto; margin-right: auto;" />
+                        <input type="password" placeholder="Enter your password" id="input-password"
+                            style="margin-left: auto; margin-right: auto;" />
+                        <br>
+                        <div class="form-btn" onclick="logInFunction()">LOG IN</div>
+                        <p class="message" style="margin-left: auto; margin-right: auto;">Not registered? <a
+                                onclick="redirectToRegister()" id="redirect-to-register" href="#">Create an account</a>
+                        </p>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <!-- LOGIN MODAL -->
+            <!-- LOGOUT MODAL -->
+            <div class="logout-modal-bg" id="logout-modal" style="display: none;">
+                <div id='logout-form'>
+                    <p>Do you want to log out?</p>
+                    <div style="display:inline-block;color: rgb(190, 18, 18); " class='bw-flashing-btn'
+                        onclick="logOutFunction()">Yes</div>
+                    <p>-------</p>
+                    <div style="display:inline-block;color: chartreuse;" class='bw-flashing-btn'
+                        onclick="hideLogoutModal()">No</div>
+                </div>
+            </div>
+            <!-- LOGOUT MODAL -->
+            <!-- ACCOUNT MODAL -->
+            <div class="modal-bg" id="account-modal" style="display: none;">
+                <div id="account-panel" style="border: black 4px solid;">
+                    <div class="close-modal-btn" onclick="closeAccountModal()" style="display: block;">X</div>
+                    <a href="#"><i class="fas fa-portrait" style="font-size: 50px;"></i></a>
+                    <div id="active-user" style="color:black; font-family: var(--Abel); margin-top: 5px;
+                    font-size: 150%;"></div>
+                    <div id="active-user-role" style="color:black; font-family: var(--Abel); margin-top: 5px;"></div>
+                    <br>
+                    <div id="logout-btn" style="font-family: var(--Abel);" onclick="showLogoutModal()">Log Out</div>
+                </div>
+            </div>
+        </div>
+        <div class="homepage--main">
+            <div onmouseover="navButtonIn()" onmouseout="navButtonOut()" class="homepage--main__slide"
+                id="homepage--slide">
+                <div class="main--slider">
+                    <!-- <div class="slide--image"><a class="slideButton" href="#">Shop now</a></div> -->
+                    <img class="slide--image" src="./img/mainslide/banner-headphones-dark.jpg" alt="">
+                </div>
+                <div class="main--slider">
+                    <img class="slide--image" src="./img/mainslide/banner-bobber-lamp.jpg " alt=" ">
+                </div>
+                <div class="main--slider">
+                    <img class="slide--image" src="./img/mainslide/main_banner1.jpg " alt=" ">
+                </div>
+            </div>
+
+            <div class="homepage--main__secondBanner ">
+                <div class="main--secondBanner__leftBox ">
+
+                    <div class="main--banner__boxContent catelogy ">ACCESSORIES</div>
+                    <div class="main--banner__boxContent event ">Clearance Sales</div>
+                    <div class="main--banner__boxContent eventContent ">Up to 70% Off & Free Shipping</div>
+                    <div class="main--banner__boxContent button" onmouseout="hiddenArrow(0)" onmouseover="visible(0)">
+                        <a class="banner--boxContent--link "
+                            href="https://goya.everthemes.com/demo-decor/?header_version=v6" target="_blank">
+                            <div class="main--banner__boxContent contentButton ">All discount sales</div>
+                            <i class="main--banner__boxContent fa fa-long-arrow-right"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="main--secondBanner__rightBox">
+
+                    <div class="main--banner__boxContent catelogy">CLEARANCE</div>
+                    <div class="main--banner__boxContent event">Free Shipping</div>
+                    <div class="main--banner__boxContent eventContent">Clean, clever and natural furniture.</div>
+                    <div class="main--banner__boxContent button" onmouseout="hiddenArrow(1)" onmouseover="visible(1)">
+                        <a class="banner--boxContent--link"
+                            href="https://goya.everthemes.com/demo-decor/?header_version=v6" target="_blank">
+                            <div class="main--banner__boxContent contentButton">All discount sales</div>
+                            <i class="main--banner__boxContent fa fa-long-arrow-right"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="homepage--main__thirdBanner">
+                <div class="main--thirdBanner__left">
+
+                    <div class="main--banner__boxContent catelogy ">SHOP WOMEN</div>
+                    <div class="main--banner__boxContent event">Huge Discounts</div>
+                    <div class="main--banner__boxContent eventContent ">Top designers to create contemporary furniture.
+                        Narwhal typewriter XOXO try-hard pitchfork irony.
+                    </div>
+                    <div class="main--banner__boxContent button" onmouseout="hiddenArrow(2) " onmouseover="visible(2) ">
+                        <a class="banner--boxContent--link"
+                            href="https://goya.everthemes.com/demo-decor/?header_version=v6 " target="_blank">
+                            <div class="main--banner__boxContent contentButton ">All discount sales</div>
+                            <i class="main--banner__boxContent fa fa-long-arrow-right "></i>
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="main--thirdBanner__slideRight">
+
+                    <div class="thirdBanner--slide__product">
+                        <div class="thirdBanner--slide__productImage left"></div>
+                        <a href="#" class="thirdBanner--slide__productName">Normwall Clock</a>
+                        <div class="thirdBanner--slide__productPrice">
+                            <div class="slide--productPrice__defaut">$120</div>
+                            <div class="slide--productPrice__change">$99</div>
+                        </div>
+                    </div>
+
+                    <div class="thirdBanner--slide__product right">
+                        <div class="thirdBanner--slide__productImage right"></div>
+                        <a href="#" class="thirdBanner--slide__productName">Afterroom Coat Hanger</a>
+                        <div class="thirdBanner--slide__productPrice">
+                            <div class="slide--productPrice__defaut">$90</div>
+                            <div class="slide--productPrice__change"></div>
+                        </div>
+                    </div>
+                    <!-- 
+                    <div class="thirdBanner--slideRight__button">
+                        <i onclick="showSlide()" class="fa fa-chevron-left"></i>
+                    </div>
+                    <div class="thirdBanner--slideRight__button">
+                        <i class="fa fa-chevron-right"></i>
+                    </div> -->
+                </div>
+
+            </div>
+
+            <div class="homepage--main__fourthBigBanner">
+
+                <div class="main--fourthBigBanner__intro">
+                    <p class="fourthBigBanner--intro__title">CONNECTED SPACES</p>
+                    <p class="fourthBigBanner--intro__name">Redefine how we use space</p>
+                    <p class="fourthBigBanner--intro__content">Top designers and craftspeople around the world to create
+                        contemporary furniture, lighting and accessories that are clean, clever and natural.</p>
+                </div>
+                <div class="main--fourthBigBanner__detail">
+                    <div class="fourthBigBanner--detail__event">
+                        <i class="detail__event fa fa-random"></i>
+                        <p class="detail--event title">Free Shipping</p>
+                        <p class="detail--event content">Pinterest succulents raclette everyday carry.</p>
+                    </div>
+                    <div class="fourthBigBanner--detail__event">
+                        <i class="detail__event fa fa-exchange"></i>
+                        <p class="detail--event title">30 days return</p>
+                        <p class="detail--event content">Irony vape green juice pop-up pork belly.</p>
+                    </div>
+                    <div class="fourthBigBanner--detail__event">
+                        <i class="detail__event fa fa-plane"></i>
+                        <p class="detail--event title">International Warranty</p>
+                        <p class="detail--event content">Williamsburg letterpress 90’s.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="homepage--footer">
+
+            <div class="homepage--footer__navigator">
+                <div class="homepage--footer__menu menuLeft">
+                    <div class="footer__menu title underline">COMPANY</div>
+                    <div class="footer__menu css underline">Contact</div>
+                    <div class="footer__menu css underline">Store Locator</div>
+                    <div class="footer__menu css underline">About us</div>
+                </div>
+
+                <div class="homepage--footer__menu menuBetween">
+                    <div class="footer__menu title underline">HELP</div>
+                    <div class="footer__menu css underline">Order Tracking</div>
+                    <div class="footer__menu css underline">FAQ’s</div>
+                    <div class="footer__menu css underline">Terms & Conditions</div>
+                </div>
+
+                <div class="homepage--footer__menu menuBetween">
+                    <div class="footer__menu title underline">STORE</div>
+                    <div class="footer__menu css underline">Furniture</div>
+                    <div class="footer__menu css underline">Decoration</div>
+                    <div class="footer__menu css underline">Lighting</div>
+                </div>
+
+                <div class="homepage--footer__menu menuRight">
+                    <div class="footer__menu title">SIGN UP FOR FREE</div>
+                    <div class="footer__menu content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
+                        quia beatae.</div>
+
+                    <div class="footer__menu form ">
+                        <input class="footer--menu--inputText" type="text" placeholder="Your email adress">
+                        <input class="footer--menu--signUpButton" type="button" value="SIGN UP"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="homepage--footer__social ">
+                <i class="footer fa fa-twitter "></i>
+                <i class="footer fa fa-facebook "></i>
+                <i class="footer fa fa-instagram "></i>
+            </div>
+        </div>
+
+        <div onclick="autoSrollUp()" class="homepage--upButton">
+            <i class="fa fa-long-arrow-up"></i>
+        </div>
+    </div>
+    <!-- <div class="homepage--modal">
+        <div class="modal--overlay"></div>
+        <div class="modal--body">
+            <div onclick="closeModal()" class="modal--body__close" title="Close">
+                <img src="./img/cancel.png" />
+            </div>
+            <div class="modal--body__loginInner">
+                <div class="modal--body__title">Login</div>
+
+                <div class="modal--userLoginInput">
+                    <div class="modal--userInput">
+                        <input class="modal--userInput username" type="text" placeholder="Username or email adress *">
+                        <span class="form-message"></span>
+                    </div>
+                    <div class="modal--userInput passwordContainner">
+                        <input id="loginPW" class="modal--userInput password" type="password" placeholder="Password *">
+                        <div class="modal--eyesContainer">
+                            <img onclick="hidePassword(0)" class="modal--eyes show" title="Click to hide"
+                                src="./img/showPass.png" alt="">
+                            <img onclick="showPassword(0)" class="modal--eyes hide" title="Click to show"
+                                src="./img/hidePass.png" alt="">
+                        </div>
+                        <span class="form-message"></span>
+
+                    </div>
+                </div>
+
+                <div class="modal--checkBoxOption">
+                    <input class="checkBoxOption checkBox" type="checkbox">
+                    <div class="checkBoxOption checkBoxText">Remember me</div>
+                    <div class="checkBoxOption lostPassword underline">Lost your password?</div>
+                </div>
+                <div onclick="login()" class="btn modal--login">Login</div>
+
+                <div class="modal--notMember">
+                    <p>Not a member?</p>
+                    <div onclick="showRegisterModal()" class="btn underline modal--registerSwitch">Register</div>
+                </div>
+
+            </div>
+
+
+            <div class="modal--body__registerInner">
+
+                <div class="modal--body__title">Register</div>
+                <div class="modal--userRegisterInput">
+                    <div class="modal--userInput">
+                        <input class="modal--userInput input" type="text" placeholder="Username or email adress *">
+                        <span class="form-message"></span>
+                    </div>
+                    <div class="modal--userInput passwordContainner">
+                        <input id="registerPW" class="modal--userInput password" type="password"
+                            placeholder="Password *">
+                        <div class="modal--eyesContainer">
+                            <img onclick="hidePassword(1)" class="modal--eyes show" title="Click to hide"
+                                src="./img/showPass.png" alt="">
+                            <img onclick="showPassword(1)" class="modal--eyes hide" title="Click to show"
+                                src="./img/hidePass.png" alt="">
+                        </div>
+                        <spanclass="form-message">
+                            </spanclass=>
+                    </div>
+                    <div class="modal--userInput passwordContainner">
+                        <input id="confirmPW" class="modal--userInput password" type="password"
+                            placeholder="Confirm password *">
+                        <div class="modal--eyesContainer">
+                            <img onclick="hidePassword(2)" class="modal--eyes show" title="Click to hide"
+                                src="./img/showPass.png" alt="">
+                            <img onclick="showPassword(2)" class="modal--eyes hide" title="Click to show"
+                                src="./img/hidePass.png" alt="">
+                        </div>
+                        <span id="test12" class="form-message"></span>
+                    </div>
+
+                </div>
+
+                <div onclick="checkPW()" class="btn modal--registerButton">Create an account</div>
+
+                <div class="modal--alreadyMember">
+                    <p>Already a member?</p>
+                    <div onclick="showLoginModal()" class="btn underline modal--alreadyAccout">Login</div>
+                </div>
+            </div>
+        </div>
+
+    </div> -->
+
+    <script src="./jsView/Jquery3.4.1.min.js"></script>
+    <script src="./jsView/main.js"></script>
+    <script src="user-database.js"></script>
+    <script src="login.js"></script>
+    <script src="admin-panel.js"></script>
+    <script type="text/javascript " src="//code.jquery.com/jquery-1.11.0.min.js "></script>
+    <script type="text/javascript " src="//code.jquery.com/jquery-migrate-1.2.1.min.js "></script>
+    <script type="text/javascript " src="./slick/slick.js "></script>
+    <script src="index.js "></script>
+
+</body>
+
+</html>
